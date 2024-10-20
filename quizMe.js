@@ -54,10 +54,10 @@ const files = getAllFiles(directoryPath)
 
 const howMany = process.argv[2] || 2
 
-const shuffled = shuffleArray(files).slice(0,howMany)
+const picked = shuffleArray(files).slice(0,howMany)
 
 
 
 
 
-console.log(`Please solve these ${howMany} interview questions\n`, shuffled);
+console.log(`Please solve these ${howMany} interview questions picked from a total of ${files.length}\n`, picked);

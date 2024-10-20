@@ -29,6 +29,19 @@ Output: false
 
  */
 
+/**
+ * Blurb
+ * create matchingBraces
+ * Create a stack
+ * Loop over all elements in the string
+ * if an element is in matchingBraces
+ *      if stack is empty or the last element in stack is not the correct matchingBrace, return
+ *      pop the tack
+ * else:
+ *  push into the stack
+ * return true if stack is empty
+ */
+
 
 //Better Version
 const isValid = (s) => {

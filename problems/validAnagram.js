@@ -26,21 +26,23 @@ Output: false
 //     return sortedS === sortedT
 // }
 
-const isAnagram = (s,t) => {
-    let charCount = {}
-    for (let char of s){
-        charCount[char] = (charCount[char] || 0) + 1
-    }
+// const isAnagram = (s,t) => {
+//     let charCount = {}
+//     for (let char of s){
+//         charCount[char] = (charCount[char] || 0) + 1
+//     }
 
-    for (let char of t){
-        if (charCount[char] == undefined) return false
-        charCount[char]--
-    }
-    for (let char in charCount){
-        if (charCount[char] !== 0) return false
-    }
-    return true
+//     for (let char of t){
+//         if (charCount[char] == undefined) return false
+//         charCount[char]--
+//     }
+//     for (let char in charCount){
+//         if (charCount[char] !== 0) return false
+//     }
+//     return true
     
-}
+// }
 
-console.log(isAnagram("ab", "a"))
+
+
+console.log(isAnagram("anagram", "nagaram"))

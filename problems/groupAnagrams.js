@@ -106,19 +106,52 @@ const primeMapping = {
 //     return acc
 // }
 
-const encode = (str) => str.split("").sort().join("")
+// const encode = (str) => str.split("").sort().join("")
 
-const groupAnagrams = (strs) => {
-    const groups = {}
-    for (let word of strs) {
-        let encoded = encode(word)
-        if (encoded in groups){
-            groups[encoded].push(word)
-        } else {
-            groups[encoded] = [word]
-        }
+// const groupAnagrams = (strs) => {
+//     const groups = {}
+//     for (let word of strs) {
+//         let encoded = encode(word)
+//         if (encoded in groups){
+//             groups[encoded].push(word)
+//         } else {
+//             groups[encoded] = [word]
+//         }
+//     }
+//     return Object.values(groups)
+// }
+
+
+
+const encode = (word) => {
+    const alphabet = "abcdefghijklmnopqrstuvwxyz"
+    let charObj = {}
+    for (let char of alphabet) {
+        charObj[char] = 0
     }
-    return Object.values(groups)
+    for (let char of word){
+        charObj[char] += 1
+    }
+    return Object.values(charObj).join("-")
+
 }
 
-console.log(groupAnagrams( ["eat","tea","tan","ate","nat","bat"]))
+const groupAnagrams = (words) => {
+    const anagrams = {}
+    for (let word of words) {
+        let encoded = encode(word)
+        if (encoded in anagrams) {
+            anagrams[encoded].push(word)
+        } else {
+            anagrams[encoded] = [word]
+        }
+    }
+    console.log(anagrams)
+    return Object.values(anagrams)
+}
+
+// console.log(encode("bdddddddddd"))
+// console.log(encode("act"))
+
+// console.log(groupAnagrams( ["eat","tea","tan","ate","nat","bat"]))
+console.log(groupAnagrams(["bdddddddddd","bbbbbbbbbbc"]))
