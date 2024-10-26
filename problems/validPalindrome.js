@@ -28,37 +28,65 @@ Since an empty string reads the same forward and backward, it is a palindrome.
  
  */
 
-const isPalindrome = (str) => {
+// const isPalindrome = (str) => {
 
-    const letters = "abcdefghijklmnopqrstuvwxyz"
-    let i = 0
-    let j = str.length-1
+//     const letters = "abcdefghijklmnopqrstuvwxyz0123456789"
+//     let i = 0
+//     let j = str.length-1
 
     
-    const strLower = str.toLowerCase()
+//     const strLower = str.toLowerCase()
 
-    while (j>=i) {
+//     while (j>=i) {
 
-        while(!letters.includes(strLower[i]) && i<str.length){
-            i++
-        }
-        while(!letters.includes(strLower[j]) && j>=0){
-            j--
-        }
+//         while(!letters.includes(strLower[i]) && i<str.length){
+//             i++
+//         }
+//         while(!letters.includes(strLower[j]) && j>=0){
+//             j--
+//         }
 
-        if (!letters.includes(strLower[i])) i++
-        if (!letters.includes(strLower[j])) j--
+//         if (!letters.includes(strLower[i])) i++
+//         if (!letters.includes(strLower[j])) j--
         
-        if (strLower[i] === strLower[j]){
-            i++
-            j--
-        } else {
-            return false
-        }
-    }
-    return true
-}
+//         if (strLower[i] === strLower[j]){
+//             i++
+//             j--
+//         } else {
+//             return false
+//         }
+//     }
+//     return true
+// }
 
+//Better
+
+var isPalindrome = function(s) {
+    let alphanum = "0123456789abcdefghijklmnopqrstuvwxyz"
+
+    let i = 0
+    let j = s.length-1
+
+    let str = s.toLowerCase()
+
+    while (i < j) {
+        if (!alphanum.includes(str[i])){
+            i++
+            continue
+        }
+        if (!alphanum.includes(str[j])){
+            j--
+            continue
+        }
+        if (str[i] !== str[j]) return false
+
+        i++
+        j--
+    
+    }
+
+    return true  
+};
 const s = " "
 console.log(isPalindrome(s))
 

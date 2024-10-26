@@ -32,18 +32,35 @@ Output: [0,1]
  * Combine the two loops
  */
 
-const twoSum = (nums, target) => {
-    const complements = {}
+// const twoSum = (nums, target) => {
+//     const complements = {}
 
-    for (let i=0;i<nums.length;i++){
-        let el = nums[i]
-        if (el in complements && i !== complements[el]) {
-            return [i, complements[el]]
-        }
-        let complement = target - el
+//     for (let i=0;i<nums.length;i++){
+//         let el = nums[i]
+//         if (el in complements && i !== complements[el]) {
+//             return [i, complements[el]]
+//         }
+//         let complement = target - el
+//         complements[complement] = i
+//     }
+
+// }
+
+var twoSum = function(nums, target) {
+    
+    let complements = {}
+    for (let i=0;i<nums.length;i++) {
+        let num = nums[i]
+        if (num in complements) return [i, complements[num]]
+        let complement = target - num
         complements[complement] = i
     }
 
-}
+    // for (let i=0;i<nums.length; i++ ){
+    //     let num = nums[i]
+    //     if (num in complements && i!==complements[num]) return [i, complements[num]]
+    // }
+
+};
 
 console.log(twoSum([3,2,4], 6))
